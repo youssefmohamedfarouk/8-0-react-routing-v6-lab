@@ -1,4 +1,4 @@
-export const owners = [
+export const ownerData = [
   {
     id: "434AFaI",
     firstName: "Bobby",

@@ -1,6 +1,6 @@
 import "./NewsletterForm.css";
 
-export const NewsletterForm = () => {
+export function NewsletterForm() {
   return (
     <section className="signup">
       <h2>Sign up for our newsletter!</h2>
@@ -15,6 +15,6 @@ export const NewsletterForm = () => {
       </form>
     </section>
   );
-};
+}
 
 export default NewsletterForm;

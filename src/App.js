@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 /*
   Components
@@ -14,32 +14,24 @@ import PetsList from "./components/pets/PetsList";
   ---------------
   Note: Normally this data would be pulled from an API. It is not necessary, however, for this application.
 */
-import { employees } from "./data/employees.js";
-import { owners } from "./data/owners";
-import { pets } from "./data/pets";
+import { employeeData } from "./data/employees.js";
+import { ownerData } from "./data/owners";
+import { petData } from "./data/pets";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      employees,
-      owners,
-      pets,
-    };
-  }
+function App() {
+  const [employees] = useState(employeeData);
+  const [owners] = useState(ownerData);
+  const [pets] = useState(petData);
 
-  render() {
-    const { employees, owners, pets } = this.state;
-    return (
-      <div className="wrapper">
-        <Nav />
-        <Home employees={employees} owners={owners} pets={pets} />
-        <StaffList employees={employees} />
-        <PetsList pets={pets} />
-        <Footer />
-      </div>
-    );
-  }
+  return (
+    <div className="wrapper">
+      <Nav />
+      <Home employees={employees} owners={owners} pets={pets} />
+      <StaffList employees={employees} />
+      <PetsList pets={pets} />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

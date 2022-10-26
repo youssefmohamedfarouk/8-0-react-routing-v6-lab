@@ -1,6 +1,6 @@
 import "./Nav.css";
 
-export const Nav = () => {
+function Nav() {
   return (
     <header>
       <article>
@@ -22,6 +22,6 @@ export const Nav = () => {
       </aside>
     </header>
   );
-};
+}
 
 export default Nav;
