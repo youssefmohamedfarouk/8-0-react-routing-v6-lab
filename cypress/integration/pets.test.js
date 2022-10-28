@@ -1,21 +1,23 @@
+const { PORT = 3000 } = process.env;
+
 describe("/pets", () => {
-  beforeEach(() => {
-    const { PORT = 3000 } = process.env;
+  before(() => {
     cy.visit(`http://localhost:${PORT}/pets`);
     cy.waitForReact();
   });
 
-  // it("should redirect to `/pets/cats`", () => {
-  //   cy.location().should((location) => {
-  //     expect(location.pathname).to.eq("/pets/cats");
-  //   });
-  // });
+  it("should redirect to `/pets/cats`", () => {
+    cy.location().should((location) => {
+      expect(location.pathname).to.eq("/pets/cats");
+    });
+  });
 
   it("should have all of the relevant components", () => {
+    cy.visit(`http://localhost:${PORT}/pets/dogs`);
+    cy.waitForReact();
     cy.react("Nav").should("exist");
     cy.react("PetsList").should("exist");
     cy.react("PetsListNav").should("exist");
-    // cy.react("Pet").should("exist");
     cy.react("Footer").should("exist");
   });
 
